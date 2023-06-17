@@ -20,7 +20,7 @@ def start(message: telebot.types.Message):
 
 @bot.message_handler(commands=['convert'])
 def values(message: telebot.types.Message):
-    text = 'Выберете вылюту для конвертации: '
+    text = 'Выберите вылюту для конвертации: '
     bot.send_message(message.chat.id, text, reply_markup=create_markup())
     bot.register_next_step_handler(message, base_handler)
 
