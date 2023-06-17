@@ -22,7 +22,7 @@ class CurrencyExchange:
 
         try:
             amount = float(amount)
-        except:
+        except ValueError:
             raise APIExceptions(f"Неверно введено количество - {amount}.\nПример ввода: рубль доллар 100\n/start")
 
         r = requests.get(f'https://min-api.cryptocompare.com/data/price?fsym={currency[base]}&tsyms={currency[quote]}')
