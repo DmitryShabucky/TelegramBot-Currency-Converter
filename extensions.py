@@ -25,7 +25,7 @@ class CurrencyExchange:
         except:
             raise APIExceptions(f"Неверно введено количество - {amount}.\nПример ввода: рубль доллар 100\n/start")
 
-        r = requests.get(f'https://min-api.cryptocompare.com/data/price?fsym={currency[quote]}&tsyms={currency[base]}')
-        total_base = json.loads(r.content)[currency[base]]
+        r = requests.get(f'https://min-api.cryptocompare.com/data/price?fsym={currency[base]}&tsyms={currency[quote]}')
+        total_base = json.loads(r.content)[currency[quote]]
 
         return f"{amount} {currency[base]} = {round(float(total_base) * float(amount), 2)} {currency[quote]}"
